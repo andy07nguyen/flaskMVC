@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Friends</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Skeleton-2.0.4/css/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Skeleton-2.0.4/css/skeleton.css') }}">
+  </head>
+  <body>
+    <div class="offset-by-four column">
+      <h2>Your Friends</h2>
+      {% for friend in friends: %}
+        <p>
+          <a href="/editFriend/{{friend.id}}">{{friend.name}}</a>, {{friend.age}} 
+        </p>
+      {% endfor %}
+      <form action="/addFriend" method="post">
+        <label>Name: </label><input type="text" name="name" value="">
+        <label>Age: </label><input type="text" name="age" value="">
+        <div class="row"><input type="submit" value="Add Friend"></div>
+      </form>
+    </div>
+  </body>
+</html>
